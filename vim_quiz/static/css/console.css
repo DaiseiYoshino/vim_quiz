@@ -12,11 +12,11 @@
   color: #dddddd;
 }
 
-.char-pointer {
-  animation: blink 0.8s infinite;
+.char-pointer-always {
+  animation: blink-always 0.8s infinite;
 }
 
-@keyframes blink {
+@keyframes blink-always {
   0%, 100% {
     background: #dddddd;
   }

@@ -10,8 +10,8 @@ function toConsoleText(textObjs: textObj[]) {
 
   textObjs.forEach((singleObj, index) => {
     switch (singleObj.style) {
-      case 'blink':
-        ret.push((<span key={index} className="char-pointer">{singleObj.text}</span>))
+      case 'blink-always':
+        ret.push((<span key={index} className="char-pointer-always">{singleObj.text}</span>))
         break;
       case 'none':
       default:
