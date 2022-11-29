@@ -6,7 +6,7 @@ function App() {
     <>
       <link rel={'stylesheet'} href={'./static/css/App.css'}/>
       <div className="App">
-        <ConsoleWindow text={[{style: 'blink-always', text: 'H'}, {text: 'ello, world'}]}/>
+        <ConsoleWindow text={[{style: 'blink', animationNum:1, text: 'H'}, {text: 'ello, world'}, {style: 'blink', animationNum:2, text:'!'}]}/>
       </div>
     </>
   );
