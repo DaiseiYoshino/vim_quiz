@@ -39,8 +39,7 @@ function toConsoleText(textObjs: textObj[]) {
 class ConsoleWindow extends React.Component {
   constructor (props) {
     super(props);
-    // this.state = {textElems: toConsoleText(props)}
-    this.state = {textElems: toConsoleText(props.text)}
+    this.state = {textElems: toConsoleText(this.props.text)}
   }
 
   render () {
