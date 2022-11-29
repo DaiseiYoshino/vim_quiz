@@ -36,17 +36,23 @@ function toConsoleText(textObjs: textObj[]) {
   return ret;
 }
 
-function ConsoleWindow({text}) {
-  const outText = toConsoleText(text);
+class ConsoleWindow extends React.Component {
+  constructor (props) {
+    super(props);
+    // this.state = {textElems: toConsoleText(props)}
+    this.state = {textElems: toConsoleText(props.text)}
+  }
 
-  return (
-    <>
-      <link rel={'stylesheet'} href={'./../static/css/console.css'}/>
-      <div className="console">
-        {outText}
-      </div>
-    </>
-  );
-};
+  render () {
+    return (
+      <>
+        <link rel={'stylesheet'} href={'./../static/css/console.css'}/>
+        <div className="console">
+          {this.state.textElems}
+        </div>
+      </>
+    );
+  }
+}
 
 export default ConsoleWindow;
