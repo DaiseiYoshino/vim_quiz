@@ -1,9 +1,14 @@
 import { React } from "../deps.ts";
 
-function toConsoleText(textObj: {style: string, text: string}[]) {
+type textObj = {
+  style?: string,
+  text: string
+};
+
+function toConsoleText(textObjs: textObj[]) {
   let ret = Array();
 
-  textObj.forEach((singleObj, index) => {
+  textObjs.forEach((singleObj, index) => {
     switch (singleObj.style) {
       case 'blink':
         ret.push((<span key={index} className="char-pointer">{singleObj.text}</span>))
