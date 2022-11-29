@@ -9,7 +9,18 @@
   border-color: #dddddd;
   border-style: solid;
 
-  
-
   color: #dddddd;
+}
+
+.char-pointer {
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    background: #dddddd;
+  }
+  50% {
+    background: #444444;
+  }
 }
