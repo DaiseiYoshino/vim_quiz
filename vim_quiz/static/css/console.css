@@ -1,3 +1,5 @@
+/* コンソールウィンドウ部分の設定 */
+
 .console {
   width: 80%;
   height: 50%;
@@ -12,6 +14,8 @@
   color: #dddddd;
 }
 
+/* アニメーションを付与するクラスの設定 */
+
 .char-pointer-always {
   animation: blink-always 0.8s infinite;
 }
@@ -23,6 +27,8 @@
 .char-pointer-2of2 {
   animation: blink-2of2 1.6s infinite;
 }
+
+/* アニメーションの設定 */
 
 @keyframes blink-always {
   0%, 100% {
