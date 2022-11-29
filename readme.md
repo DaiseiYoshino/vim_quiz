@@ -9,5 +9,6 @@ vimクイズ(ができるようにしたいもの)
 deno install -A --unstable -n deno-create-react-app https://deno.land/x/create_react_app/mod.ts
 
 #起動
+# cd vim_quiz
 deno-create-react-app run
 ```
