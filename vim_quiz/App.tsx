@@ -14,12 +14,13 @@ class App extends React.Component {
     };
   }
 
-  keyPress(e: any) { // ちゃんと型書きたい
+  keyPress(e: any): void { // ちゃんと型書きたい
+    // console.log(e);
     this.setState(
       () => {
         return {
           consoleContent: [
-            {text: 'Key pressed.'}
+            {text: e.key}
           ]
         };
       }
@@ -32,7 +33,8 @@ class App extends React.Component {
         <link rel={'stylesheet'} href={'./static/css/App.css'}/>
         <div
           className="App"
-          onClick={this.keyPress.bind(this)}
+          tabIndex={-1}
+          onKeyDown={this.keyPress.bind(this)}
         >
           <ConsoleWindow
             text={this.state.consoleContent}
