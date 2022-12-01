@@ -1,0 +1,58 @@
+/* コンソールウィンドウ部分の設定 */
+
+.console {
+  width: 80%;
+  height: 50%;
+  background-color: #444444;
+
+  margin-top: 10%;
+  margin-left: 10%;
+
+  border-color: #dddddd;
+  border-style: solid;
+
+  color: #dddddd;
+}
+
+/* アニメーションを付与するクラスの設定 */
+
+.char-pointer-always {
+  animation: blink-always 0.8s infinite;
+}
+
+.char-pointer-1of2 {
+  animation: blink-1of2 1.6s infinite;
+}
+
+.char-pointer-2of2 {
+  animation: blink-2of2 1.6s infinite;
+}
+
+/* アニメーションの設定 */
+
+@keyframes blink-always {
+  0%, 100% {
+    background: #dddddd;
+  }
+  50% {
+    background: #444444;
+  }
+}
+
+@keyframes blink-1of2 {
+  0%, 50% {
+    background: #dddddd;
+  }
+  25%, 51%, 99% {
+    background: #444444;
+  }
+}
+
+@keyframes blink-2of2 {
+  50%, 99% {
+    background: #dddddd;
+  }
+  0%, 49%, 75% {
+    background: #444444;
+  }
+}

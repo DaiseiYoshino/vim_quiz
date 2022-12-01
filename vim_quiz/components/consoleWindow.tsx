@@ -9,7 +9,6 @@ type textObj = {
 class ConsoleWindow extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {textElems: this.toConsoleText(this.props.text)}
   }
 
   toConsoleText(textObjs: textObj[]) {
@@ -47,7 +46,7 @@ class ConsoleWindow extends React.Component {
       <>
         <link rel={'stylesheet'} href={'./../static/css/console.css'}/>
         <div className="console">
-          {this.state.textElems}
+          {this.toConsoleText(this.props.text)}
         </div>
       </>
     );
