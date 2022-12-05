@@ -4,8 +4,8 @@ import mainFunc from './functions/main.ts';
 import keyHandler from './functions/keyHandler.ts';
 
 class App extends React.Component {
-  private mainFunc;
-  private keyHandler;
+  private mainFunc: Generator<any[], any, any>;
+  private keyHandler: Generator<string[], any, any>;
   private state: {
     consoleContent: Array<string | {style?: string, animationNum: number, text: string}>
   };

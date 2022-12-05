@@ -28,7 +28,7 @@ const keyConv = (keyEvent: any): string => {
   return ret;
 };
 
-function* keyHandler() {
+function* keyHandler(): Generator<string[], any, any> {
   let stack: string[] = [];
   let input: string = '';
   while (true) {

@@ -1,4 +1,4 @@
-function* mainFunc() {
+function* mainFunc(): Generator<any[], any, any> {
   let mode = 'title';
   let input = [];
   input = yield [
