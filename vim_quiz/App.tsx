@@ -7,7 +7,7 @@ class App extends React.Component {
   private mainFunc: Generator<any[], any, any>;
   private keyHandler: Generator<string[], any, any>;
   private state: {
-    consoleContent: Array<string | {style?: string, animationNum: number, text: string}>
+    consoleContent: Array<string | {style?: string, animationNum?: number, text: string}>
   };
 
   constructor (props) {

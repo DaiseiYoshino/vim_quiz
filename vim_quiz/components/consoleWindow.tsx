@@ -11,15 +11,16 @@ class ConsoleWindow extends React.Component {
     super(props);
   }
 
-  toConsoleText(textObjs: textObj[]) {
+  toConsoleText(textObjs: Array<string | textObj>) {
     let ret = Array();
 
     /**
      * アニメーションコマ数を取得する
      */
-    const animationNum = Math.max(
+    const animationNum: number = Math.max(
       ...textObjs.map(
         singleObj => {
+          if (typeof singleObj == 'string') return 1;
           return singleObj?.animationNum ? singleObj.animationNum : 1
         }
       )
@@ -28,7 +29,8 @@ class ConsoleWindow extends React.Component {
     textObjs.forEach((singleObj, index) => {
       const animationSteps =
         animationNum == 1 ? 'always'
-        : `${singleObj.animationNum ? singleObj.animationNum : 1}of${animationNum}`;
+          : typeof singleObj == 'string' ? 'always' 
+          : `${singleObj.animationNum ? singleObj.animationNum : 1}of${animationNum}`;
       if (typeof singleObj == 'string') {
         ret.push((<span key={index}>{singleObj}</span>))
       } else {
