@@ -1,8 +1,9 @@
 function* keyHandler() {
-  let stack = [];
-  let input = '';
+  let stack: {text: string}[] = [];
+  let input: string = '';
   while (true) {
-    input = yield [{text: input}];
+    input = yield stack;
+    stack.push({text: input});
   }
 }
 
