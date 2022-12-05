@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   keyPress(e: any): void { // ちゃんと型書きたい
-    const keyArray = this.keyHandler.next(e.key).value;
+    const keyArray = this.keyHandler.next(e).value;
     this.setState(
       () => {
         return {
