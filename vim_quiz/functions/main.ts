@@ -3,7 +3,7 @@ function* mainFunc() {
   let input = [];
   input = yield [
     {style: 'blink', animationNum:1, text: 'H'},
-    {text: 'ello, world'},
+    'ello, world',
     {style: 'blink', animationNum:2, text:'!'}
   ];
 

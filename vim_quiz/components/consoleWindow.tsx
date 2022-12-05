@@ -19,7 +19,9 @@ class ConsoleWindow extends React.Component {
      */
     const animationNum = Math.max(
       ...textObjs.map(
-        singleObj => singleObj.animationNum ? singleObj.animationNum : 1
+        singleObj => {
+          return singleObj?.animationNum ? singleObj.animationNum : 1
+        }
       )
     );
 
@@ -27,14 +29,18 @@ class ConsoleWindow extends React.Component {
       const animationSteps =
         animationNum == 1 ? 'always'
         : `${singleObj.animationNum ? singleObj.animationNum : 1}of${animationNum}`;
-      switch (singleObj.style) {
-        case 'blink':
-          ret.push((<span key={index} className={`char-pointer-${animationSteps}`}>{singleObj.text}</span>))
-          break;
-        case 'none':
-        default:
-          ret.push((<span key={index}>{singleObj.text}</span>))
-          break;
+      if (typeof singleObj == 'string') {
+        ret.push((<span key={index}>{singleObj}</span>))
+      } else {
+        switch (singleObj.style) {
+          case 'blink':
+            ret.push((<span key={index} className={`char-pointer-${animationSteps}`}>{singleObj.text}</span>))
+            break;
+          case 'none':
+          default:
+            ret.push((<span key={index}>{singleObj.text}</span>))
+            break;
+        }
       }
     })
 

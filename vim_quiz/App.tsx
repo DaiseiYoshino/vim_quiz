@@ -6,6 +6,9 @@ import keyHandler from './functions/keyHandler.ts';
 class App extends React.Component {
   private mainFunc;
   private keyHandler;
+  private state: {
+    consoleContent: Array<string | {style?: string, animationNum: number, text: string}>
+  };
 
   constructor (props) {
     super(props);
