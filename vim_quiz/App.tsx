@@ -1,16 +1,16 @@
 import {React} from './deps.ts';
 import ConsoleWindow from './components/consoleWindow.tsx'
+import mainFunc from './functions/main.ts';
 
 class App extends React.Component {
+  private mainFunc;
+
   constructor (props) {
     super(props);
+    this.mainFunc = mainFunc();
 
     this.state = {
-      consoleContent: [
-        {style: 'blink', animationNum:1, text: 'H'},
-        {text: 'ello, world'},
-        {style: 'blink', animationNum:2, text:'!'}
-      ]
+      consoleContent: this.mainFunc.next().value
     };
   }
 
@@ -19,10 +19,8 @@ class App extends React.Component {
     this.setState(
       () => {
         return {
-          consoleContent: [
-            {text: e.key}
-          ]
-        };
+          consoleContent: this.mainFunc.next(e.key).value
+        }
       }
     );
   }
