@@ -1,6 +1,12 @@
 const keyConv = (keyEvent: any): string => {
+  // 受信用コマンドだった場合の処理
+  if (typeof keyEvent == 'undefined') return '';
+
+  // リセット用コマンドだった場合の処理
+  if (typeof keyEvent == 'string' && keyEvent == 'RESET') return 'RESET';
+
+  // それ以外のキーイベントオブジェクトが来た時の処理
   const key: string = keyEvent.key;
-  console.log(keyEvent);
 
   // 修飾キー単体の場合はパスする
   if (
@@ -37,7 +43,7 @@ function* keyHandler(): Generator<string[], any, any> {
     if (convertedKey != '') {
       stack.push(convertedKey);
     }
-    if (convertedKey == 'Enter') {
+    if (convertedKey == 'RESET') {
       stack = [];
     }
   }

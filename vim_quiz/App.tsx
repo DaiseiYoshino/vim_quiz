@@ -21,10 +21,12 @@ class App extends React.Component {
   }
 
   keyPress(e: any): void { // ちゃんと型書きたい
-    const keyArray = this.keyHandler.next(e).value;
+    this.keyHandler.next(e);// 送信用
+    let keyArray = this.keyHandler.next().value;// 受信用
     let consoleContent = keyArray;
     if (keyArray.slice(-1)[0] == 'Enter') {// 最後の入力がEnterだった場合
       consoleContent = this.mainFunc.next(keyArray).value;
+      this.keyHandler.next('RESET');// リセット用コマンド
     }
     this.setState(
       () => {
