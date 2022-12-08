@@ -8,7 +8,7 @@ function* mainFunc(): Generator<any[], any, any> {
   ];
 
   while (true) {
-    input = yield [{text: input}]
+    input = yield [{style: 'blink', text: 'Enter!'}]
   };
 };
 

@@ -30,11 +30,15 @@ const keyConv = (keyEvent: any): string => {
 
 function* keyHandler(): Generator<string[], any, any> {
   let stack: string[] = [];
-  let input: string = '';
+  let input: any = '';
   while (true) {
     input = yield stack;
-    if (input != '') {
-      stack.push(keyConv(input));
+    const convertedKey: string = keyConv(input);
+    if (convertedKey != '') {
+      stack.push(convertedKey);
+    }
+    if (convertedKey == 'Enter') {
+      stack = [];
     }
   }
 }

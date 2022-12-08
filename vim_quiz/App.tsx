@@ -22,10 +22,14 @@ class App extends React.Component {
 
   keyPress(e: any): void { // ちゃんと型書きたい
     const keyArray = this.keyHandler.next(e).value;
+    let consoleContent = keyArray;
+    if (keyArray.slice(-1)[0] == 'Enter') {// 最後の入力がEnterだった場合
+      consoleContent = this.mainFunc.next(keyArray).value;
+    }
     this.setState(
       () => {
         return {
-          consoleContent: keyArray
+          consoleContent: consoleContent
         }
       }
     );
