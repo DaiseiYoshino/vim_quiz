@@ -2,7 +2,6 @@ import { React } from "../deps.ts";
 
 type textObj = {
   style?: string,
-  animationNum?: number,
   text: string
 };
 
@@ -11,23 +10,25 @@ class ConsoleWindow extends React.Component {
     super(props);
   }
 
-  toConsoleText(textObjs: Array<string | textObj>) {
+  toConsoleText(textObjs: Array<Array<string | textObj>>) {
     let ret = Array();
 
-    textObjs.forEach((singleObj, index) => {
-      if (typeof singleObj == 'string') {
-        ret.push((<span key={index}>{singleObj}</span>))
-      } else {
-        switch (singleObj.style) {
-          case 'blink':
-            ret.push((<span key={index} className={`char-pointer-always`}>{singleObj.text}</span>))
-            break;
-          case 'none':
-          default:
-            ret.push((<span key={index}>{singleObj.text}</span>))
-            break;
+    textObjs.forEach((frame, index) => {
+      frame.forEach((textObj, index) => {
+        if (typeof textObj == 'string') {
+          ret.push((<span key={index}>{textObj}</span>))
+        } else {
+          switch (textObj.style) {
+            case 'blink':
+              ret.push((<span key={index} className={`char-pointer-always`}>{textObj.text}</span>))
+              break;
+            case 'none':
+            default:
+              ret.push((<span key={index}>{textObj.text}</span>))
+              break;
+          }
         }
-      }
+      })
     })
 
     return ret;

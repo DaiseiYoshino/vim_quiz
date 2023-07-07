@@ -34,17 +34,17 @@ const keyConv = (keyEvent: any): string => {
   return ret;
 };
 
-function* keyHandler(): Generator<string[], any, any> {
-  let stack: string[] = [];
+function* keyHandler(): Generator<string[][], any, any> {
+  let stack: string[][] = [[]];
   let input: any = '';
   while (true) {
     input = yield stack;
     const convertedKey: string = keyConv(input);
     if (convertedKey != '') {
-      stack.push(convertedKey);
+      stack[0].push(convertedKey);
     }
     if (convertedKey == 'RESET') {
-      stack = [];
+      stack = [[]];
     }
   }
 }
